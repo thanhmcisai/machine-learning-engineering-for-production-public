@@ -14,10 +14,14 @@ app = FastAPI(title="Predicting Wine Class with batching")
 # with open("models/wine.pkl", "rb") as file:
 #     clf = pickle.load(file)
 
-# New model with accuracy 95%
-with open("models/wine-95.pkl", "rb") as file:
-    clf = pickle.load(file)
+# Fail model with accuracy 33,33%
+# with open("models/wine-95.pkl", "rb") as file:
+#     clf = pickle.load(file)
 
+# New model with accuracy 95%
+with open("models/wine-95-fixed.pkl", "rb") as file:
+    clf = pickle.load(file)
+    
 class Wine(BaseModel):
     batches: List[conlist(item_type=float, min_items=13, max_items=13)]
 
