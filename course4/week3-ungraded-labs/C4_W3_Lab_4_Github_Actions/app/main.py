@@ -9,9 +9,14 @@ from pydantic import BaseModel, conlist
 app = FastAPI(title="Predicting Wine Class with batching")
 
 # Open classifier in global scope
-with open("models/wine.pkl", "rb") as file:
-    clf = pickle.load(file)
 
+# Old model with accuracy 91%
+# with open("models/wine.pkl", "rb") as file:
+#     clf = pickle.load(file)
+
+# New model with accuracy 95%
+with open("models/wine-95.pkl", "rb") as file:
+    clf = pickle.load(file)
 
 class Wine(BaseModel):
     batches: List[conlist(item_type=float, min_items=13, max_items=13)]
